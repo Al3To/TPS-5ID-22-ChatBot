@@ -1,0 +1,11 @@
+C:\Users\aleto\OneDrive\Desktop\Scuola\TPS\Socket01\SocketFormServer\SocketFormServer\bin\Debug\SocketFormServer.exe.config
+C:\Users\aleto\OneDrive\Desktop\Scuola\TPS\Socket01\SocketFormServer\SocketFormServer\bin\Debug\SocketFormServer.exe
+C:\Users\aleto\OneDrive\Desktop\Scuola\TPS\Socket01\SocketFormServer\SocketFormServer\bin\Debug\SocketFormServer.pdb
+C:\Users\aleto\OneDrive\Desktop\Scuola\TPS\Socket01\SocketFormServer\SocketFormServer\obj\Debug\SocketFormServer.csproj.AssemblyReference.cache
+C:\Users\aleto\OneDrive\Desktop\Scuola\TPS\Socket01\SocketFormServer\SocketFormServer\obj\Debug\SocketFormServer.csproj.SuggestedBindingRedirects.cache
+C:\Users\aleto\OneDrive\Desktop\Scuola\TPS\Socket01\SocketFormServer\SocketFormServer\obj\Debug\SocketFormServer.Form1.resources
+C:\Users\aleto\OneDrive\Desktop\Scuola\TPS\Socket01\SocketFormServer\SocketFormServer\obj\Debug\SocketFormServer.Properties.Resources.resources
+C:\Users\aleto\OneDrive\Desktop\Scuola\TPS\Socket01\SocketFormServer\SocketFormServer\obj\Debug\SocketFormServer.csproj.GenerateResource.cache
+C:\Users\aleto\OneDrive\Desktop\Scuola\TPS\Socket01\SocketFormServer\SocketFormServer\obj\Debug\SocketFormServer.csproj.CoreCompileInputs.cache
+C:\Users\aleto\OneDrive\Desktop\Scuola\TPS\Socket01\SocketFormServer\SocketFormServer\obj\Debug\SocketFormServer.exe
+C:\Users\aleto\OneDrive\Desktop\Scuola\TPS\Socket01\SocketFormServer\SocketFormServer\obj\Debug\SocketFormServer.pdb
