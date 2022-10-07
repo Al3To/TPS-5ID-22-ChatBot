@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.Runtime.InteropServices;
 
 namespace SocketFormServer
 {
@@ -19,7 +20,7 @@ namespace SocketFormServer
         public static IPAddress ipAddress = System.Net.IPAddress.Parse("127.0.0.1");
         public static IPEndPoint remoteEP = new IPEndPoint(ipAddress, 8888);
         public static Socket _socketServer = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-        public static Socket handler;
+        
 
         public Form1()
         {
@@ -29,6 +30,10 @@ namespace SocketFormServer
         }
         private void RecMsg()
         {
+            Socket handler;
+            handler = _socketServer.Accept();
+            data = "Someone connected to the server";
+            MsgChat();
             var random = new Random();
             while (true)
             {
@@ -53,16 +58,17 @@ namespace SocketFormServer
                             if (data.ToLower().Contains("numero random"))
                             {
                                 data = random.Next().ToString();
-                                Invoke(new MethodInvoker(EditTxtBoxSend));
-                            }else if (data.ToLower().Contains("un dado"))
+                                EditTxtBoxSend(handler);
+                            }
+                            else if (data.ToLower().Contains("un dado"))
                             {
                                 data = random.Next(1, 7).ToString();
-                                Invoke(new MethodInvoker(EditTxtBoxSend));
+                                EditTxtBoxSend(handler);
                             }
                             else if (data.ToLower().Contains("due dadi"))
                             {
                                 data = random.Next(1, 7).ToString() + " " + random.Next(1, 7).ToString();
-                                Invoke(new MethodInvoker(EditTxtBoxSend));
+                                EditTxtBoxSend(handler);
                             }else if (data.ToLower().Contains("calcolatrice"))
                             {
                                 string[] splitData = data.Split(' ');
@@ -88,7 +94,7 @@ namespace SocketFormServer
                                     }
                                 }else
                                     data = "Devi usare la seguente struttura: 'Calcolatrice x + y'";
-                                Invoke(new MethodInvoker(EditTxtBoxSend));
+                                EditTxtBoxSend(handler);
                             }
                             break;
                         }
@@ -98,11 +104,14 @@ namespace SocketFormServer
             }
             
         }
-        private void EditTxtBoxSend()
+        private void EditTxtBoxSend(Socket handler)
         {
-            txtBoxSend.Text = "";
-            txtBoxSend.Text = data;
-            btn_Send.PerformClick();
+            byte[] msg = Encoding.ASCII.GetBytes(data + "<EOF>");
+
+            int bytesSent = handler.Send(msg);
+            data = txtBoxSend.Text;
+            MsgChat();
+
         }
         private void MsgChat()
         {
@@ -112,25 +121,12 @@ namespace SocketFormServer
                 txtBoxChat.AppendText(Environment.NewLine + data);
         }
 
-        private void btn_Send_Click(object sender, EventArgs e)
-        {
-            
-            byte[] msg = Encoding.ASCII.GetBytes(txtBoxSend.Text + "<EOF>");
-            
-            int bytesSent = handler.Send(msg);
-            data = txtBoxSend.Text;
-            MsgChat();
-            
-            txtBoxSend.Text = "";
-            
-        }
-
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
             {
-                handler.Shutdown(SocketShutdown.Both);
-                handler.Close();
+                _socketServer.Shutdown(SocketShutdown.Both);
+                _socketServer.Close();
             }catch(Exception ex) { };
             Environment.Exit(0);
 
@@ -139,9 +135,6 @@ namespace SocketFormServer
         private void btnStartServer_Click(object sender, EventArgs e)
         {
             data = "Waiting for connection...";
-            MsgChat();
-            handler = _socketServer.Accept();
-            data = "Someone connected to the server";
             MsgChat();
             Thread _recMsg = new Thread(RecMsg);
             _recMsg.Start();

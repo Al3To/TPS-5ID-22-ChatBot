@@ -32,7 +32,7 @@
             this.labelChatTitle = new System.Windows.Forms.Label();
             this.txtBoxChat = new System.Windows.Forms.TextBox();
             this.btn_Send = new System.Windows.Forms.Button();
-            this.btnStartServer = new System.Windows.Forms.Button();
+            this.btnNewConnection = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtBoxSend
@@ -70,24 +70,23 @@
             this.btn_Send.TabIndex = 10;
             this.btn_Send.Text = "Invia";
             this.btn_Send.UseVisualStyleBackColor = true;
-            this.btn_Send.Click += new System.EventHandler(this.btn_Send_Click);
             // 
-            // btnStartServer
+            // btnNewConnection
             // 
-            this.btnStartServer.Location = new System.Drawing.Point(543, 100);
-            this.btnStartServer.Name = "btnStartServer";
-            this.btnStartServer.Size = new System.Drawing.Size(97, 24);
-            this.btnStartServer.TabIndex = 14;
-            this.btnStartServer.Text = "Start Server";
-            this.btnStartServer.UseVisualStyleBackColor = true;
-            this.btnStartServer.Click += new System.EventHandler(this.btnStartServer_Click);
+            this.btnNewConnection.Location = new System.Drawing.Point(543, 100);
+            this.btnNewConnection.Name = "btnNewConnection";
+            this.btnNewConnection.Size = new System.Drawing.Size(97, 24);
+            this.btnNewConnection.TabIndex = 14;
+            this.btnNewConnection.Text = "Connesione";
+            this.btnNewConnection.UseVisualStyleBackColor = true;
+            this.btnNewConnection.Click += new System.EventHandler(this.btnStartServer_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 553);
-            this.Controls.Add(this.btnStartServer);
+            this.Controls.Add(this.btnNewConnection);
             this.Controls.Add(this.txtBoxSend);
             this.Controls.Add(this.labelChatTitle);
             this.Controls.Add(this.txtBoxChat);
@@ -105,7 +104,7 @@
         private System.Windows.Forms.Label labelChatTitle;
         private System.Windows.Forms.TextBox txtBoxChat;
         private System.Windows.Forms.Button btn_Send;
-        private System.Windows.Forms.Button btnStartServer;
+        private System.Windows.Forms.Button btnNewConnection;
     }
 }
 
