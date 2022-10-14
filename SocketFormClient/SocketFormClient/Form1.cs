@@ -30,12 +30,21 @@ namespace SocketFormClient
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            
-            _socketClient.Connect(remoteEP);
-            data = "Connected to server";
-            MsgChat();
-            Thread _recMsg = new Thread(RecMsg);
-            _recMsg.Start();
+            if (!_socketClient.Connected)
+            {
+                _socketClient.Connect(remoteEP);
+                data = "Connected to server";
+                MsgChat();
+                Thread _recMsg = new Thread(RecMsg);
+                _recMsg.Start();
+                btnConnect.Text = "Disconnetti";
+            }
+            else
+            {
+                btnConnect.Text = "Connettiti";
+                _socketClient.Disconnect(true);
+                
+            }
         }
         private void RecMsg()
         {

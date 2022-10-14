@@ -38,6 +38,7 @@
             // 
             // labelChatTitle
             // 
+            this.labelChatTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelChatTitle.AutoSize = true;
             this.labelChatTitle.Location = new System.Drawing.Point(385, 77);
             this.labelChatTitle.Name = "labelChatTitle";
@@ -47,6 +48,7 @@
             // 
             // txtBoxChat
             // 
+            this.txtBoxChat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBoxChat.Location = new System.Drawing.Point(268, 100);
             this.txtBoxChat.Multiline = true;
             this.txtBoxChat.Name = "txtBoxChat";
@@ -56,6 +58,7 @@
             // 
             // btn_Send
             // 
+            this.btn_Send.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Send.Location = new System.Drawing.Point(468, 393);
             this.btn_Send.Name = "btn_Send";
             this.btn_Send.Size = new System.Drawing.Size(97, 32);
@@ -66,6 +69,7 @@
             // 
             // txtBoxSend
             // 
+            this.txtBoxSend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBoxSend.Location = new System.Drawing.Point(268, 362);
             this.txtBoxSend.Multiline = true;
             this.txtBoxSend.Name = "txtBoxSend";
@@ -75,6 +79,7 @@
             // 
             // btnConnect
             // 
+            this.btnConnect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnConnect.Location = new System.Drawing.Point(486, 73);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(79, 24);
@@ -85,13 +90,16 @@
             // 
             // comboBoxSelections
             // 
+            this.comboBoxSelections.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxSelections.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSelections.FormattingEnabled = true;
             this.comboBoxSelections.Items.AddRange(new object[] {
             "Numero Random",
             "Un Dado",
             "Due Dadi",
-            "Calcolatrice"});
+            "Calcolatrice",
+            "Lancio Moneta",
+            "Pi Greco"});
             this.comboBoxSelections.Location = new System.Drawing.Point(131, 363);
             this.comboBoxSelections.Name = "comboBoxSelections";
             this.comboBoxSelections.Size = new System.Drawing.Size(121, 24);

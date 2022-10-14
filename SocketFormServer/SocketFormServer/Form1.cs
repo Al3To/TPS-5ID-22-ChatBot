@@ -26,7 +26,7 @@ namespace SocketFormServer
         {
             InitializeComponent();
             _socketServer.Bind(remoteEP);
-            _socketServer.Listen(10);
+            _socketServer.Listen(30);
         }
         private void RecMsg()
         {
@@ -96,6 +96,34 @@ namespace SocketFormServer
                                     data = "Devi usare la seguente struttura: 'Calcolatrice x + y'";
                                 EditTxtBoxSend(handler);
                             }
+                            else if (data.ToLower().Contains("lancio moneta"))
+                            {
+                                int r = random.Next(0, 2);
+                                if (r == 0) data = "testa";
+                                else data = "croce";
+                                EditTxtBoxSend(handler);
+                            }else if(data.ToLower().Contains("pi greco"))
+                            {
+                                
+                                double pi = 3.14159265358979;
+                                char[] piC = pi.ToString().ToCharArray();
+                                string[] splitData = data.Split(' ');
+                                Int32.TryParse(splitData[2], out int num);
+                                if (num > 15) data = "Il massimo di cifre è 15!";
+                                else if (num == 0) data = "Il minimo di cifre è 1!";
+                                else
+                                {
+                                    if (splitData.Length == 3)
+                                    {
+                                        data = "";
+                                        for (int n = 0; n < num + 1; ++n)
+                                            data += piC[n].ToString();
+                                    }
+                                    else
+                                        data = "Devi usare la seguente struttura: 'Pi Greco [numero di cifre]";
+                                }
+                                EditTxtBoxSend(handler);
+                            }
                             break;
                         }
                     }
@@ -110,6 +138,7 @@ namespace SocketFormServer
 
             int bytesSent = handler.Send(msg);
             data = txtBoxSend.Text;
+            Console.WriteLine(data);
             MsgChat();
 
         }
@@ -127,7 +156,7 @@ namespace SocketFormServer
             {
                 _socketServer.Shutdown(SocketShutdown.Both);
                 _socketServer.Close();
-            }catch(Exception ex) { };
+            }catch(Exception ex) { Console.Write(ex); };
             Environment.Exit(0);
 
         }
