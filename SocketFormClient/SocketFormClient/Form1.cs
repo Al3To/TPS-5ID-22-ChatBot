@@ -14,14 +14,13 @@ using System.Runtime.InteropServices;
 
 namespace SocketFormClient
 {
-    public partial class Form1 : Form
+    public partial class Client : Form
     {
         public static string data = null;
         public static IPAddress ipAddress = System.Net.IPAddress.Parse("127.0.0.1");
         IPEndPoint remoteEP = new IPEndPoint(ipAddress, 8888);
-        Socket _socketClient = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-        
-        public Form1()
+        Socket _socketClient;
+        public Client()
         {
             InitializeComponent();
             
@@ -30,9 +29,11 @@ namespace SocketFormClient
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            if (!_socketClient.Connected)
+            if (btnConnect.Text == "Connettiti")
             {
+                _socketClient = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
                 _socketClient.Connect(remoteEP);
+
                 data = "Connected to server";
                 MsgChat();
                 Thread _recMsg = new Thread(RecMsg);
@@ -41,9 +42,9 @@ namespace SocketFormClient
             }
             else
             {
+                _socketClient.Shutdown(SocketShutdown.Both);
+                _socketClient.Close();
                 btnConnect.Text = "Connettiti";
-                _socketClient.Disconnect(true);
-                
             }
         }
         private void RecMsg()

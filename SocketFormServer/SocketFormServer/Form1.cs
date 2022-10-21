@@ -14,7 +14,7 @@ using System.Runtime.InteropServices;
 
 namespace SocketFormServer
 {
-    public partial class Form1 : Form
+    public partial class Server : Form
     {
         public static string data = null;
         public static IPAddress ipAddress = System.Net.IPAddress.Parse("127.0.0.1");
@@ -22,7 +22,7 @@ namespace SocketFormServer
         public static Socket _socketServer = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
         
 
-        public Form1()
+        public Server()
         {
             InitializeComponent();
             _socketServer.Bind(remoteEP);
@@ -34,6 +34,7 @@ namespace SocketFormServer
             handler = _socketServer.Accept();
             data = "Someone connected to the server";
             MsgChat();
+            Invoke(new MethodInvoker(StartThread));
             var random = new Random();
             while (true)
             {
@@ -163,8 +164,22 @@ namespace SocketFormServer
 
         private void btnStartServer_Click(object sender, EventArgs e)
         {
-            data = "Waiting for connection...";
-            MsgChat();
+            if (btnNewConnection.Text == "Avvia Server")
+            {
+                data = "Waiting for connection...";
+                MsgChat();
+                btnNewConnection.Text = "Spegni Server";
+                StartThread();
+                
+            }
+            else
+            {
+                _socketServer.Shutdown(SocketShutdown.Both);
+                _socketServer.Close();
+            }
+        }
+        private void StartThread()
+        {
             Thread _recMsg = new Thread(RecMsg);
             _recMsg.Start();
         }

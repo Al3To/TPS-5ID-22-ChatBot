@@ -1,6 +1,6 @@
 ﻿namespace SocketFormClient
 {
-    partial class Form1
+    partial class Client
     {
         /// <summary>
         /// Variabile di progettazione necessaria.
@@ -40,6 +40,7 @@
             // 
             this.labelChatTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelChatTitle.AutoSize = true;
+            this.labelChatTitle.ForeColor = System.Drawing.Color.Gainsboro;
             this.labelChatTitle.Location = new System.Drawing.Point(385, 77);
             this.labelChatTitle.Name = "labelChatTitle";
             this.labelChatTitle.Size = new System.Drawing.Size(34, 16);
@@ -106,10 +107,11 @@
             this.comboBoxSelections.TabIndex = 10;
             this.comboBoxSelections.SelectedIndexChanged += new System.EventHandler(this.comboBoxSelections_SelectedIndexChanged);
             // 
-            // Form1
+            // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(50)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(982, 553);
             this.Controls.Add(this.comboBoxSelections);
             this.Controls.Add(this.btnConnect);
@@ -117,8 +119,8 @@
             this.Controls.Add(this.labelChatTitle);
             this.Controls.Add(this.txtBoxChat);
             this.Controls.Add(this.btn_Send);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Client";
+            this.Text = "Client";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();

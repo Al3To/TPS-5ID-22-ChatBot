@@ -1,6 +1,6 @@
 ﻿namespace SocketFormServer
 {
-    partial class Form1
+    partial class Server
     {
         /// <summary>
         /// Variabile di progettazione necessaria.
@@ -55,6 +55,8 @@
             // 
             // txtBoxChat
             // 
+            this.txtBoxChat.BackColor = System.Drawing.Color.Black;
+            this.txtBoxChat.ForeColor = System.Drawing.Color.Green;
             this.txtBoxChat.Location = new System.Drawing.Point(343, 127);
             this.txtBoxChat.Multiline = true;
             this.txtBoxChat.Name = "txtBoxChat";
@@ -77,22 +79,23 @@
             this.btnNewConnection.Name = "btnNewConnection";
             this.btnNewConnection.Size = new System.Drawing.Size(97, 24);
             this.btnNewConnection.TabIndex = 14;
-            this.btnNewConnection.Text = "Connesione";
+            this.btnNewConnection.Text = "Avvia Server";
             this.btnNewConnection.UseVisualStyleBackColor = true;
             this.btnNewConnection.Click += new System.EventHandler(this.btnStartServer_Click);
             // 
-            // Form1
+            // Server
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.ClientSize = new System.Drawing.Size(982, 553);
             this.Controls.Add(this.btnNewConnection);
             this.Controls.Add(this.txtBoxSend);
             this.Controls.Add(this.labelChatTitle);
             this.Controls.Add(this.txtBoxChat);
             this.Controls.Add(this.btn_Send);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Server";
+            this.Text = "Server";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
